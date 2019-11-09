@@ -1,0 +1,26 @@
+.center {
+  text-align: center
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.side-by-side {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.side-by-side .column {
+    padding: 10px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}

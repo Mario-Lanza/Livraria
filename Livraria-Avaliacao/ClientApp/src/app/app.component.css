@@ -1,0 +1,28 @@
+.navbar {
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+mat-sidenav-container{
+  height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  background-color: royalblue;
+  width: 200px;
+}
+
+.mat-list-item {
+  color: white;
+}
+
+mat-sidenav-content {
+  background-color: whitesmoke;
+}

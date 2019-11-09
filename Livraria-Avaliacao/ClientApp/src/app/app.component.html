@@ -1,0 +1,44 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>
+    <button mat-mini-fab color="primary" (click)="sidenav.toggle()">
+      <mat-icon>vertical_split</mat-icon>
+    </button>
+    Livraria
+  </div>
+  <div>
+    <button mat-mini-fab color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/']">Inicio</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="['/counter']">Cadastrar</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="['/fetch-data']">Lista</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Usuario</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>voicemail</mat-icon>
+    <span>Sobre</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Sair</span>
+  </button>
+</mat-menu>
