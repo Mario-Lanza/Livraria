@@ -1,8 +1,0 @@
-C:\git\Livraria\Livraria.Domain.Core\bin\Debug\netcoreapp3.0\Livraria.Domain.Core.deps.json
-C:\git\Livraria\Livraria.Domain.Core\bin\Debug\netcoreapp3.0\Livraria.Domain.Core.dll
-C:\git\Livraria\Livraria.Domain.Core\bin\Debug\netcoreapp3.0\Livraria.Domain.Core.pdb
-C:\git\Livraria\Livraria.Domain.Core\obj\Debug\netcoreapp3.0\Livraria.Domain.Core.csprojAssemblyReference.cache
-C:\git\Livraria\Livraria.Domain.Core\obj\Debug\netcoreapp3.0\Livraria.Domain.Core.AssemblyInfoInputs.cache
-C:\git\Livraria\Livraria.Domain.Core\obj\Debug\netcoreapp3.0\Livraria.Domain.Core.AssemblyInfo.cs
-C:\git\Livraria\Livraria.Domain.Core\obj\Debug\netcoreapp3.0\Livraria.Domain.Core.dll
-C:\git\Livraria\Livraria.Domain.Core\obj\Debug\netcoreapp3.0\Livraria.Domain.Core.pdb

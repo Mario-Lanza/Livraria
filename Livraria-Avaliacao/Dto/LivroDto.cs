@@ -15,6 +15,6 @@ namespace Livraria_Avaliacao.Dto
 
         public int Quantidade { get; set; }
 
-        public int? QuantidadeMinimaCompra { get; set; }
+        public int? QuantidadeMinima { get; set; }
     }
 }

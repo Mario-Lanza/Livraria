@@ -16,12 +16,5 @@ namespace Livraria.Domain.Entidades
         public int Quantidade { get; set; }
 
         public int? QuantidadeMinimaCompra { get; set; }
-
-        public bool QuantidadeMenorDoLimiteMinimo()
-        {
-            if (QuantidadeMinimaCompra == null) return false;
-                
-            return Quantidade < QuantidadeMinimaCompra;
-        }
     }
 }

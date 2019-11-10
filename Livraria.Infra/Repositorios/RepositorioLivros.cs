@@ -18,7 +18,9 @@ namespace Livraria.Infra.Repositorios
 
         public IEnumerable<Livro> ObterLivrosComEstoqueAbaixoDoMinimoDesejado()
         {
-            return RetornarTodos().Where(livro => livro.QuantidadeMenorDoLimiteMinimo()).ToList();
+            return RetornarTodos()
+                .Where(livro => livro.QuantidadeMinimaCompra != null && livro.Quantidade < livro.QuantidadeMinimaCompra)
+                .ToList();
         }
     }
 }

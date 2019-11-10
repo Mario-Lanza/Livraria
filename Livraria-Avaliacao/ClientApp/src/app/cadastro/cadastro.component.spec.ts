@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroComponent } from "./CadastroComponent";
+import { CadastroComponent } from "./cadastro.component";
 
 describe('CounterComponent', () => {
     let component: CadastroComponent;

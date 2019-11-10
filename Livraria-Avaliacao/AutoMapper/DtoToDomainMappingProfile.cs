@@ -8,7 +8,8 @@ namespace Livraria_Avaliacao.AutoMapper
     {
         public DtoToDomainMappingProfile()
         {
-            CreateMap<LivroDto, Livro>();
+            CreateMap<LivroDto, Livro>()
+                .ForMember(dest => dest.QuantidadeMinimaCompra, opt => opt.MapFrom(src => src.QuantidadeMinima));
         }
     }
 }
