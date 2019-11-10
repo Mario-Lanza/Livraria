@@ -18,7 +18,7 @@
       <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="['/cadastro']">Cadastrar</a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="['/fetch-data']">Lista</a>
+      <a mat-list-item [routerLink]="['/lista']">Lista</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,16 +29,16 @@
 </mat-sidenav-container>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
+  <button mat-menu-item (click)="menuSuperiorItem()">
+    <mat-icon>emoji_people</mat-icon>
     <span>Usuario</span>
   </button>
-  <button mat-menu-item>
-    <mat-icon>voicemail</mat-icon>
+  <button mat-menu-item (click)="menuSuperiorItem()">
+    <mat-icon>apps</mat-icon>
     <span>Sobre</span>
   </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
+  <button mat-menu-item (click)="menuSuperiorItem()">
+    <mat-icon>cancel</mat-icon>
     <span>Sair</span>
   </button>
 </mat-menu>

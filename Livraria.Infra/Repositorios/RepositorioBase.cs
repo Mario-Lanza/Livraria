@@ -2,6 +2,7 @@
 using Livraria.Domain.Interfaces.Repositorios;
 using Livraria.Infra.Contexto;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace Livraria.Domain.Repositorios
@@ -22,13 +23,20 @@ namespace Livraria.Domain.Repositorios
             Save();
         }
 
-        public TEntidade Consultar(int id)
+        public TEntidade Consultar(Guid id)
         {
             return setBase.Find(id);
         }
 
         public void Excluir(TEntidade entidade)
         {
+            setBase.Remove(entidade);
+            Save();
+        }
+
+        public void Excluir(Guid id)
+        {
+            var entidade = Consultar(id);
             setBase.Remove(entidade);
             Save();
         }

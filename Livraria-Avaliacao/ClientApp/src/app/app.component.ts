@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material'
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'app';
     opened = false;
+
+    constructor(
+        private snackBar: MatSnackBar) { }
+
+    menuSuperiorItem() {
+        this.snackBar.open("Não foi implementado", "", { duration: 5000 });
+    }
 }

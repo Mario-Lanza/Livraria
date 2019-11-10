@@ -30,8 +30,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\cadastro\cadastro.component.ts" />
+    <None Remove="ClientApp\src\app\Interfaces.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Livraria.Domain\Livraria.Domain.csproj" />
     <ProjectReference Include="..\Livraria.Infra\Livraria.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\cadastro\cadastro.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

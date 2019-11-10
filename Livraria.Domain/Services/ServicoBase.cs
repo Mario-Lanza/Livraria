@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Livraria.Domain.Entidades;
 using Livraria.Domain.Interfaces.Repositorios;
 using Livraria.Domain.Interfaces.Servicos;
@@ -19,7 +20,7 @@ namespace Livraria.Domain.Services
             repositorio.Alterar(entidade);
         }
 
-        public TEntidade Consultar(int id)
+        public TEntidade Consultar(Guid id)
         {
             return repositorio.Consultar(id);
         }
@@ -27,6 +28,11 @@ namespace Livraria.Domain.Services
         public void Excluir(TEntidade entidade)
         {
             repositorio.Excluir(entidade);
+        }
+
+        public void Excluir(Guid id)
+        {
+            repositorio.Excluir(id);
         }
 
         public IQueryable<TEntidade> RetornarTodos()

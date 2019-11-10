@@ -1,8 +1,8 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">Livros Cadastrados</h1>
 <div class="container">
   <div class="botoes">
-    <button *ngIf="selection.selected.length > 0" (click)="logData()" color="primary" mat-raised-button>Alterar</button>
-    <button *ngIf="selection.selected.length > 0" color="warn" mat-raised-button>Deletar</button>
+    <button *ngIf="selection.selected.length > 0" (click)="alterarLivro()" color="primary" mat-raised-button>Alterar</button>
+    <button *ngIf="selection.selected.length > 0" (click)="deletarLivro()" color="warn" mat-raised-button>Deletar</button>
   </div>
   <div class="push">
     <mat-form-field>
@@ -24,27 +24,27 @@
   </ng-container>
 
   <ng-container matColumnDef="nome">
-    <mat-header-cell *matHeaderCellDef> nome </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="autor">
-    <mat-header-cell *matHeaderCellDef> autor </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Autor </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.autor}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="editora">
-    <mat-header-cell *matHeaderCellDef> editora </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Editora </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.editora}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="dataPublicacao">
-    <mat-header-cell *matHeaderCellDef> dataPublicacao </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.dataPublicacao}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Data de Publicação </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dataPublicacao | date: 'dd/MM/yyyy'}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="quantidade">
-    <mat-header-cell *matHeaderCellDef> quantidade </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Quantidade </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.quantidade}} </mat-cell>
   </ng-container>
 

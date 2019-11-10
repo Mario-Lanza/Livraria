@@ -15,9 +15,9 @@ namespace Livraria.Infra.Migrations
                     Nome = table.Column<string>(nullable: false, maxLength: 150),
                     Autor = table.Column<string>(nullable: true, maxLength: 70),
                     Editora = table.Column<string>(nullable: true, maxLength: 70),
-                    DataPublicacao = table.Column<DateTime>(nullable: true),
+                    DataPublicacao = table.Column<DateTime?>(nullable: true),
                     Quantidade = table.Column<int>(nullable: false),
-                    QuantidadeMinimaCompra = table.Column<int>(nullable: true)
+                    QuantidadeMinimaCompra = table.Column<int?>(nullable: true)
                 },
                 constraints: table =>
                 {
