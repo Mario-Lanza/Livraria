@@ -1,0 +1,15 @@
+button {
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.example-full-width {
+  width: 40%;
+  margin-right: 10%;
+}
+
+
+mat-form-field {
+  width: 40%;
+  margin-right: 10%;
+}

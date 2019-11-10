@@ -1,9 +1,17 @@
+using Livraria.Domain.Repositorios;
+using Livraria.Domain.Interfaces.Repositorios;
+using Livraria.Infra.Contexto;
+using Livraria.Infra.Repositorios;
+using Livraria_Avaliacao.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Livraria.Domain.Interfaces.Servicos;
+using Livraria.Domain.Services;
 
 namespace Livraria_Avaliacao
 {
@@ -19,6 +27,15 @@ namespace Livraria_Avaliacao
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ContextoDataBase>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient(typeof(IRepositorioBase<>), typeof(RepositorioBase<>));
+            services.AddTransient<IRepositorioLivros, RepositorioLivros>();
+
+            services.AddTransient(typeof(IServicoBase<>), typeof(ServicoBase<>));
+            services.AddTransient<IServicoLivros, ServicoLivros>();
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -28,7 +45,7 @@ namespace Livraria_Avaliacao
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ContextoDataBase contexto)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +83,9 @@ namespace Livraria_Avaliacao
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            AutoMapperConfiguration.RegistrarMappings();
+            InicializarDb.Iniciar(contexto);
         }
     }
 }

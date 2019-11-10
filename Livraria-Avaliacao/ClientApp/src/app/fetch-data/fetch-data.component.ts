@@ -1,23 +1,39 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { SelectionModel } from '@angular/cdk/collections';
+import { LvHttpclientService } from './../Services/lv-httpclient.service';
+import { MatTableDataSource } from '@angular/material'
 
 @Component({
-  selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+    selector: 'app-fetch-data',
+    templateUrl: './fetch-data.component.html',
+    styleUrls: ['./fetch-data.component.css']
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
+    public livros: MatTableDataSource<Livros>;
+    private apiPath: string = 'weatherforecast';
+    displayedColumns: string[] = ['select', 'nome', 'autor', 'editora', 'dataPublicacao', 'quantidade'];
+    selection = new SelectionModel<Livros>(false);
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
-  }
+    constructor(httpClientService: LvHttpclientService) {
+        httpClientService.get(this.apiPath).subscribe((result: Livros[]) => {
+            this.livros = new MatTableDataSource(result);
+        }, error => console.error(error));
+    }
+
+    logData() {
+        var x = "teste";
+    }
+
+    aplicarFiltro(filterValue: string) {
+        this.livros.filter = filterValue.trim().toLowerCase();
+    }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface Livros {
+    id: string;
+    nome: string;
+    autor: string;
+    editora: string;
+    dataPublicacao: Date;
+    quantidade: number;
 }

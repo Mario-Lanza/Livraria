@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Livraria.Domain.Entidades;
+using Livraria.Domain.Interfaces.Servicos;
+using Livraria_Avaliacao.AutoMapper;
+using Livraria_Avaliacao.Dto;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Livraria_Avaliacao.Controllers
 {
@@ -11,29 +11,18 @@ namespace Livraria_Avaliacao.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IServicoLivros servicoLivros;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IServicoLivros servicoLivros)
         {
-            _logger = logger;
+            this.servicoLivros = servicoLivros;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<LivroDto> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var livros = servicoLivros.ObterLivrosPorOrdemAlfabetica();
+            return AutoMapperConfiguration.Mapper.Map<IEnumerable<LivroDto>>(livros);
         }
     }
 }

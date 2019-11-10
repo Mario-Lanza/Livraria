@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+}
+
+.push {
+  margin-left: auto;
+}
+
+.botoes {
+  align-self: center;
+}
+
+button {
+  margin-right: 4px;
+}

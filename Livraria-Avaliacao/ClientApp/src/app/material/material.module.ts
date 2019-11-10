@@ -9,7 +9,13 @@ import {
     MatIconModule,
     MatCardModule,
     MatStepperModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule
 } from '@angular/material';
 
 const MaterialComponents = [
@@ -22,7 +28,13 @@ const MaterialComponents = [
     MatIconModule,
     MatCardModule,
     MatStepperModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule
 ]
 
 @NgModule({
