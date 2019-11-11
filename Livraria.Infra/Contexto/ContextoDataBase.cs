@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.Infra.Contexto
 {
-    public class ContextoDataBase : DbContext
+    public class ContextoDataBase : DbContext, IDbContext
     {
         public ContextoDataBase(DbContextOptions<ContextoDataBase> options)
         : base(options)

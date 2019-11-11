@@ -9,11 +9,10 @@ namespace Livraria.Infra.Repositorios
 {
     public class RepositorioLivros : RepositorioBase<Livro>, IRepositorioLivros
     {
-        public RepositorioLivros(ContextoDataBase context): base(context){}
+        public RepositorioLivros(IDbContext context): base(context){}
         public IEnumerable<Livro> ObterLivrosPorOrdemAlfabetica()
         {
-            var teste =  RetornarTodos().OrderBy(livro => livro.Nome).ToList();
-            return teste;
+            return RetornarTodos().OrderBy(livro => livro.Nome).ToList();
         }
 
         public IEnumerable<Livro> ObterLivrosComEstoqueAbaixoDoMinimoDesejado()

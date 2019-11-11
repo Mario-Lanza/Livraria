@@ -36,6 +36,8 @@ namespace Livraria_Avaliacao
             services.AddTransient(typeof(IServicoBase<>), typeof(ServicoBase<>));
             services.AddTransient<IServicoLivros, ServicoLivros>();
 
+            services.AddTransient<IDbContext, ContextoDataBase>();
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

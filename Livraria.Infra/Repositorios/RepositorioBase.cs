@@ -9,10 +9,10 @@ namespace Livraria.Domain.Repositorios
 {
     public class RepositorioBase<TEntidade> : IRepositorioBase<TEntidade> where TEntidade : Entidade
     {
-        private readonly ContextoDataBase db;
+        private readonly IDbContext db;
         private readonly DbSet<TEntidade> setBase;
 
-        public RepositorioBase(ContextoDataBase contexto)
+        public RepositorioBase(IDbContext contexto)
         {
             db = contexto;
             setBase = contexto.Set<TEntidade>();
